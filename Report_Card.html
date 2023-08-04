@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+table, th, td {
+  border:1px solid #000000;
+  border-collapse:collapse !important; 
+  text-align:center;
+  padding:3px
+}
+
+th {
+  vertical-align:middle;
+  text-transform:uppercase;
+}
+
+body {
+  font-family:"calibri";
+}
+
+
+.shade1{
+  background-color:#a6a6a6;
+  color:#222222;
+}
+
+.shade2 {
+  text-transform:capitalize;
+  background-color:#555555;
+  color:#ffffff;
+}
+
+.shade3 {
+  background-color:#ff0080;
+  text-transform:capitalize;
+  color:#ffffff;
+}
+
+.shade4 {
+  background-color:#ff99cc;
+  text-transform:capitalize;
+}
+
+.shade5 {
+  background-color:#ffe6f3;
+}
+
+.width1 {
+  width:230px;
+}
+
+.width2 {
+  width:450px;
+}
+
+.width3 {
+  width:100px;
+}
+
+.width4 {
+  width:130px;
+}
+
+.width5 {
+  width:50px;
+}
+
+.width6 {
+  width:30px;
+}
+
+.width7 {
+  width:200px;
+}
+
+.height1 {
+  height:30px;
+}
+
+.align_right {
+  text-align:right;
+}
+
+.bottom {
+  border-bottom:1.5px dashed #000000;
+}
+
+</style>
+</head>
+
+<body>
+<table style="margin-left:auto; margin-right:auto">
+{% for Report in content %}
+<tr>
+<td colspan="6" style="border:1px solid #ffffff; border-top:1px solid #000000"><img src="School_Logo.png"></td>
+</tr>
+
+<tr>
+<td colspan="6" style="border:1px solid #ffffff">
+<table id="inner">
+
+  <tr>
+  <td class="shade1 width1 height1">Name of the Examination</td>
+  <th class="width2">{{Report.Exam}}</th>
+  <td class="shade1 width3">Academic<br>Session</td>
+  <th class="width4">2022 - 2023</th>
+  </tr>
+
+  <tr>
+  <td class="shade1 height1">Name of the Student</td>
+  <th>{{Report.Name}}</th>
+  <td class="shade1">Class &<br>Sec</td>
+  <th>XII - {{Report.Sec}}</th>
+  </tr>
+
+  <tr>
+  <td class="shade1 height1">Name of the Class Teacher</td>
+  <th>{{Report.Teacher}}</th>
+  <td class="shade1">Date of<br>Birth</td>
+  <th>{{Report.Date}}.{{Report.Month}}.{{Report.Year}}</th>
+  </tr>
+
+</table>
+</td>
+</tr>  
+
+<tr>
+<th colspan="6" style="font-size:30px;border:1px solid #ffffff; border-bottom:1px solid #000000 !important;">SCHOLASTIC REPORT</th>
+</tr>
+
+<tr>
+<th rowspan="2" class="shade2 width6">S.No.</th>
+<th rowspan="2" class="shade2 width7">Subject</th>
+<th rowspan="2" class="shade2 width5">Marks<br>Scored</th>
+<th rowspan="2" class="shade2 width5">Grade</th>
+<th colspan="2" class="shade3">8 Point Scale</th>
+</tr>
+
+<tr>
+<th class="shade4 width6">Mark Range</th>
+<th class="shade4 width6">Grade</th>
+</tr>
+
+<tr>
+<td class="bottom height1">1.</td>
+<th class="bottom" style="text-align:left; padding-left:15px">{{Report.Subject[0]}}</th>
+<th class="bottom">{{Report.Marks[0]}}</th>
+<th class="bottom">{{Report.Grade[0]}}</th>
+<td class="shade5">91 - 100</td>
+<td class="shade5">A1</td>
+</tr>
+
+<tr>
+<td class="bottom height1">2.</td>
+<th class="bottom" style="text-align:left; padding-left:15px">{{Report.Subject[1]}}</th>
+<th class="bottom">{{Report.Marks[1]}}</th>
+<th class="bottom">{{Report.Grade[1]}}</th>
+<td class="shade5">81 - 90</td>
+<td class="shade5">A2</td>
+</tr>
+
+<tr>
+<td class="bottom height1">3.</td>
+<th class="bottom" style="text-align:left; padding-left:15px">{{Report.Subject[2]}}</th>
+<th class="bottom">{{Report.Marks[2]}}</th>
+<th class="bottom">{{Report.Grade[2]}}</th>
+<td class="shade5">71 - 80</td>
+<td class="shade5">B1</td>
+</tr>
+
+<tr>
+<td class="bottom height1">4.</td>
+<th class="bottom" style="text-align:left; padding-left:15px">{{Report.Subject[3]}}</th>
+<th class="bottom">{{Report.Marks[3]}}</th>
+<th class="bottom">{{Report.Grade[3]}}</th>
+<td class="shade5">61 - 70</td>
+<td class="shade5">B2</td>
+</tr>
+
+<tr>
+<td class="bottom height1">5.</td>
+<th class="bottom" style="text-align:left; padding-left:15px">{{Report.Subject[4]}}</th>
+<th class="bottom">{{Report.Marks[4]}}</th>
+<th class="bottom">{{Report.Grade[4]}}</th>
+<td class="shade5">51 - 60</td>
+<td class="shade5">C1</td>
+</tr>
+
+<tr>
+<td class="bottom height1">6.</td>
+<th class="bottom"></th>
+<th class="bottom"></th>
+<th class="bottom"></th>
+<td class="shade5">41 - 50</td>
+<td class="shade5">C2</td>
+</tr>
+
+<tr>
+<td class="height1">7.</td>
+<th></th>
+<th></th>
+<th></th>
+<td class="shade5">33 - 40</td>
+<td class="shade5">D</td>
+</tr>
+
+<tr>
+<td colspan="2" class="shade1 height1">Total Marks</td>
+<th colspan="2">{{Report.Total}}</th>
+<td class="shade5">32 & Below</td>
+<td class="shade5">E<br><font size="2">(Failed)</font></td>
+</tr>
+
+<tr>
+<td colspan="2" class="shade1 height1">Overall %</td>
+<th colspan="2">{{Report.Percent}}</th>
+<td class="shade1">Maximum Marks</td>
+<td>100 %</td>
+</tr>
+
+<tr>
+<td colspan="2" class="shade1 height1">Rank Order</td>
+<th colspan="2">{{Report.Rank}}</th>
+<td class="shade1">Min. Pass Mark</td>
+<td>33 %</td>
+</tr>
+
+<tr>
+<td colspan="2" class="shade1 height1">Days</td>
+<th colspan="2">{{Report.Atten[0]}}/{{Report.Atten[1]}} Days</th>
+<td  class="shade1">Attendance %</td>
+<th>{{Report.Atten_Percent}}%</th>
+</tr>
+
+<tr>
+<th colspan="6" style="border-left:1px solid #ffffff; border-right:1px solid #ffffff"><img src="Signatures_Teachers.png"></th>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
